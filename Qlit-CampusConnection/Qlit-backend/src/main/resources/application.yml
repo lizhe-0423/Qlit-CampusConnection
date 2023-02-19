@@ -1,0 +1,57 @@
+spring:
+  # 支持循环依赖
+  main:
+    allow-circular-references: true
+    # mysql数据源
+  datasource:
+    url: jdbc:mysql://localhost:3306/qlit_campus?useUnicode=true&characterEncoding=utf8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: "011026"
+  # Nacos帮助文档: https://nacos.io/zh-cn/docs/concepts.html
+  cloud:
+    nacos:
+      discovery:
+        # Nacos认证信息
+       username: nacos
+       password: nacos
+        # Nacos 服务发现与注册配置，其中子属性 server-addr 指定 Nacos 服务器主机和端口
+       server-addr: 127.0.0.1:8848
+        # 注册到 nacos 的指定 namespace，默认为 public
+       namespace: public
+
+
+
+  # 应用名称
+  application:
+    name: Qlit-CampusConnection
+  # THYMELEAF (ThymeleafAutoConfiguration)
+  # 开启模板缓存（默认值： true ）
+  thymeleaf:
+    cache: false
+    check-template: true
+  # 检查模板是否存在，然后再呈现
+  # 检查模板位置是否正确（默认值 :true ）
+    check-template-location: true
+  #Content-Type 的值（默认值： text/html ）
+    servlet:
+      content-type: text/html
+
+  # 开启 MVC Thymeleaf 视图解析（默认值： true ）
+    enabled: true
+  # 模板编码
+    encoding: UTF-8
+  # 要被排除在解析之外的视图名称列表，⽤逗号分隔
+    excluded-view-names:
+  # 要运⽤于模板之上的模板模式。另⻅ StandardTemplate-ModeHandlers( 默认值： HTML5)
+    mode: HTML5
+  # 在构建 URL 时添加到视图名称前的前缀（默认值： classpath:/templates/ ）
+    prefix: classpath:/templates/
+  # 在构建 URL 时添加到视图名称后的后缀（默认值： .html ）
+    suffix: .html
+
+
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+
